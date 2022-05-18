@@ -1,0 +1,6 @@
+.board {
+    margin: auto;
+    display: grid;
+    width: 9em;
+    grid-template-columns: repeat(9,1fr);
+}
