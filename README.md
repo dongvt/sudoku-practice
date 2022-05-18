@@ -14,4 +14,4 @@ We are going to begging with react, then we will implement vue, and angular proj
 I'm super tired of playing crappy sudoku with hundreds of announcements in each single page, and in the phone is worst since we get video announcements every 3 minutes.
 
 ## To Do
-[] Add a to do
+[ ] Add a to do
