@@ -1,0 +1,32 @@
+.main {
+    position: relative;
+    width: 15em;
+    height: 1.5em;
+    margin: 1em auto; 
+    padding: 1.3em 1em 1em 0.5em;
+    border: 1px rgb(103, 129, 179) solid;
+
+    justify-content: center;
+    align-items: center;
+    
+    font-family: sans-serif;
+    color:rgb(103, 129, 179);
+    background-color: rgb(215, 234, 255);
+    border-radius: 1em ;
+    box-shadow: 0 0 10px rgb(103, 129, 179);
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    border: 1px rgb(103, 129, 179) solid ;
+    background-color: rgb(215, 234, 255);
+    width: 1em;
+    height: 1em;
+
+    border-bottom-color: transparent;
+    border-right-color: transparent;    
+    margin-left: 7.2em;
+    transform:rotate(45deg);
+    top:-0.6em;
+}

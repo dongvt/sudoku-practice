@@ -1,8 +1,12 @@
+import { Fragment } from 'react';
 import Board from './components/Board';
+
 
 function App() {
   return (
-    <Board />
+    <Fragment>
+      <Board />
+    </Fragment>
   );
 }
 

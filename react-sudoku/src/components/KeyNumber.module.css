@@ -1,0 +1,9 @@
+.key-square {
+    height: 2em;
+    width: 2em;
+    margin: 0.5px;
+    padding: 0.5em;
+    cursor: pointer;
+    border: 1px solid rgb(103, 129, 179);
+    z-index: 2;
+}
