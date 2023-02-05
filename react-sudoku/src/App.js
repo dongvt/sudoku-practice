@@ -1,13 +1,7 @@
-import { Fragment } from 'react';
-import Board from './components/Board';
-
+import Board from "./components/Board";
 
 function App() {
-  return (
-    <Fragment>
-      <Board />
-    </Fragment>
-  );
+  return <Board />;
 }
 
 export default App;
