@@ -1,9 +1,18 @@
 .key-square {
-    height: 2em;
-    width: 2em;
-    margin: 0.5px;
-    padding: 0.5em;
-    cursor: pointer;
-    border: 1px solid rgb(103, 129, 179);
-    z-index: 2;
+  /* height: 2em;
+  width: 2em; */
+  margin: 1px;
+  padding: 0.5em;
+  cursor: pointer;
+  border: 1px solid rgb(103, 129, 179);
+  border-radius: 5px;
+  /* z-index: 2; */
+
+  
 }
+
+.selected {
+    color: rgb(231, 231, 231);
+    background-color: rgb(103, 129, 179);
+}
+

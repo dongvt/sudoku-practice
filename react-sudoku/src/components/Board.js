@@ -57,7 +57,7 @@ const Board = (props) => {
     for (let i = iRow; i < BOX + iRow; i++) {
       for (let j = iCol; j < BOX + iCol; j++) {
         //Compute the index by getting the current row and adding current column multiplied by the board size
-        console.log(i,BOARD,j,i + BOARD * j);
+        //console.log(i,BOARD,j,i + BOARD * j);
         set.add(boardValues[(i + BOARD) * j].val);
         if (set.has(currentNumber)) return false;
       }
@@ -111,7 +111,7 @@ const Board = (props) => {
           );
         })}
       </div>
-      <Keys setNumber={setBoardNumber} boxId={clickedId} />
+      <Keys setNumber={setBoardNumber} boxId={clickedId} selected={clickedId === -1 ? 0 : boardValues[clickedId].val}/>
     </>
   );
 };
