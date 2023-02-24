@@ -5,7 +5,8 @@ import Keys from "./Keys";
 
 import styles from "./Board.module.css";
 
-import { createUniqueSudoku } from "../Helpers/SudokuAlgo";
+import { createUniqueSudoku,isValidBoard } from "../Helpers/SudokuAlgo";
+import Alert from "./Alert";
 const BOX = 3;
 const BOARD = 9;
 
@@ -15,15 +16,16 @@ const BOARD = 9;
  * @return {int} minMultiple
  */
 const getMinMultiple = (number) => {
-  number = number + ~~(number / BOX);
-  number = number - (number % BOX);
-  return number;
+  // number = number + ~~(number / BOX);
+  // number = number - (number % BOX);
+  return ~~(number / BOX) * BOX;
 };
 
 const Board = (props) => {
   const [clickedId, setClickedId] = useState(-1);
   const [valid,setValid] = useState(true);
   const [boardValues, setBoardValues] = useState(new Array(81).fill(-1));
+  const [isValidatedBoard,setIsValidatedBoard] = useState(false);
 
   //Function to test Sudoku
   const validateNumberOnBoard = (idx, currentNumber) => {
@@ -53,12 +55,12 @@ const Board = (props) => {
     let iRow = getMinMultiple(row);
     let iCol = getMinMultiple(col);
     set.clear();
-    console.log(iRow,iCol)
+    console.log(row,iRow,col,iCol)
     for (let i = iRow; i < BOX + iRow; i++) {
       for (let j = iCol; j < BOX + iCol; j++) {
         //Compute the index by getting the current row and adding current column multiplied by the board size
-        //console.log(i,BOARD,j,i + BOARD * j);
-        set.add(boardValues[(i + BOARD) * j].val);
+
+        set.add(boardValues[i * BOARD + j].val);
         if (set.has(currentNumber)) return false;
       }
     }
@@ -77,21 +79,27 @@ const Board = (props) => {
       oldBoard[clickedId] = { val: number, modifiable: true };
       return [...oldBoard];
     });
+
+    setIsValidatedBoard(isValidBoard(boardValues));
+
   };
 
   const setClickedBox = (id) => {
-    if(!valid) return;
+    if(!valid || isValidatedBoard) return;
     setClickedId(id);
     
   };
 
   const newSudokuHandle = () => {
+
     setBoardValues(createUniqueSudoku());
+    setIsValidatedBoard(false);
+    setClickedId(-1);
   }
 
   return (
     <>
-      <button onClick={newSudokuHandle}>Create new board</button>
+      
       <div className={styles.board}>
         {boardValues.map((sq, i) => {
           const col = i % BOARD;
@@ -112,6 +120,8 @@ const Board = (props) => {
         })}
       </div>
       <Keys setNumber={setBoardNumber} boxId={clickedId} selected={clickedId === -1 ? 0 : boardValues[clickedId].val}/>
+      <button className={styles['create-button']} onClick={newSudokuHandle}>Create new board</button>
+      {isValidatedBoard && <Alert/>}
     </>
   );
 };

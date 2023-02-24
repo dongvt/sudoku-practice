@@ -1,5 +1,22 @@
 const BOARD_SIZE = 81;
 
+const isValidBoard = (board) => {
+
+  const rowSet = new Array(9).fill().map(row => new Set());
+  const colSet = new Array(9).fill().map(row => new Set());
+  const boxSet = new Array(9).fill().map(row => new Set());
+  for (let i = 0; i < board.length; i++) {
+    const val = board[i].val;
+    const row = ~~(i / 9);
+    const col = i % 9;
+    const box = ~~(~~(row / 3) * 3 + col / 3);
+    if (!colSet[col].has(val)) colSet[col].add(board[i].val); else return false;
+    if (!rowSet[row].has(val)) rowSet[row].add(board[i].val); else return false;
+    if (!boxSet[box].has(val)) boxSet[box].add(board[i].val); else return false;
+  }
+
+  return true;
+}
 /**
  * Checks the if a given number entered in an specific index is a valid number into the Sudoku board
  * @param {number} num Number to be added
@@ -99,12 +116,13 @@ const createFullValidSudoku = () => {
   fillDiagonal(board);
   fillBoard(0, board);
 
-  // for(let i =0; i < BOARD_SIZE; i+=9)
-  //   console.log(board.slice(i,i+9).map(obj => obj.val));
-
   return board;
 };
 
+/**
+ * Creates the entire array with an unique answer (questionable xD)
+ * @returns {number[]} board
+ */
 const createUniqueSudoku = () => {
   const boardComparator = (fullBoard,newBoard) => {
     for (let i = 0; i < BOARD_SIZE; i++) {
@@ -132,9 +150,7 @@ const createUniqueSudoku = () => {
   } 
 
   return newBoard;
-  // for(let i =0; i < BOARD_SIZE; i+=9)
-  //   console.log(newBoard.slice(i,i+9).map(obj => obj.val));
 
 };
 
-export { createUniqueSudoku };
+export { createUniqueSudoku,isValidBoard };

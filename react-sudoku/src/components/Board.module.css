@@ -4,3 +4,28 @@
     width: 19.1em;
     grid-template-columns: repeat(9,1fr);
 }
+
+.create-button {
+    all: unset;
+    display: block;
+    margin: auto;
+    padding: 1em;
+    background-color: rgb(108,177,250);
+    font-family: verdana;
+    color: rgb(7,38,151);
+    font-weight: 700;
+    border: 1px solid rgb(7,38,151);
+    border-radius: 10px;
+    transition-duration: 200ms;
+}
+
+.create-button:hover {
+    box-shadow: 0px 0px 5px 4px rgb(24 77 179);
+    cursor: pointer;
+}
+
+.create-button:active {
+    background-color: rgb(0, 77, 158);
+    color: white;
+}
+
