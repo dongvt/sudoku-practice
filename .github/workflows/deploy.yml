@@ -14,9 +14,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '12.x'
-      - run: cd react-sudoku
-      - run: npm ci
-      - run: npm run build --if-present
+      - run: cd react-sudoku | npm ci
+      - run: cd react-sudoku | npm run build --if-present
 
   # deploy:
     # environment:
