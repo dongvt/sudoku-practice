@@ -18,10 +18,11 @@ jobs:
         run: |
           cd react-sudoku 
           npm ci
-      - name: Create build directory
+      - name: Build
         run: |
           cd react-sudoku
-          npm run build --if-present
+          npm install --save gh-pages
+          npm run deploy
 
   # deploy:
     # environment:
