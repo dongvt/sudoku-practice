@@ -22,6 +22,8 @@ jobs:
         run: |
           cd react-sudoku
           npm install --save gh-pages
+          git config --global user.email "govert.carreno@gvt.io"
+          git config --global user.name "Govert Carreno"
           npm run deploy
 
   # deploy:
