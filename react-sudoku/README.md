@@ -1,5 +1,5 @@
 # The react implementation.
-The react implementation is the first one, hence it is the one that takes more time since I'm redesigning it each time I face a problem.
+This is the react implementation, the build is complete, and you can play it [here](https://dongvt.github.io/sudoku-practice/).
 
 The idea here is just to implement a Sudoku game with the following characteristics
 - [x] The system creates a random game with a unique solution
@@ -9,5 +9,17 @@ The idea here is just to implement a Sudoku game with the following characterist
         - [ ] The user type a number and that number appears in the Sudoku board (in the selected Sudoku box)
 - [x] The system won't allow the user to override one of the numbers added by the system in the board creation
 - [x] The system will check validity the added number, and show it in red if it is wrong
-- [ ] The system will check when the board is completely done 
+- [x] The system will check when the board is completely done 
+
+## More requirements for better gameplay
+- [ ] Modifiable cell numbers should be represented in a different color than the ones added by the system
+- [ ] Use a color palette
+- [ ] Add animations for any transition (To be clarified)
+
+## Bugs to fix
+- The user should be able to select any modifiable box even when the current one has an incorrect number
+- The congrats message should be above the selected cell
+    - Center the message
+    - Test message position in all screen sizes
+    - Explain the user he/she needs to create a new board to continue
 
